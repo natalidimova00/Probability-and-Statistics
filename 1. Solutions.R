@@ -139,6 +139,29 @@ sum(res <= 138)/length(res)
 # b)
 sum(res == 137)/length(res)
 
+# task 11
+
+# a)
+sim.dice.ball.a <- function() {
+  dice <- sample( c(1:6), 1)
+  if (dice == 6) {
+    ball <- sample(c("g", "g", "r", "r"), 1)
+  }else{
+    ball <- sample(c("g", "r", "r", "r", "r"), 1)
+  }
+  ball == "g"
+}
+
+Nrep <- 100000
+res <- replicate(Nrep, sim.dice.ball.a() )
+sum(res)/Nrep
+
+
+
+
+
+
+
 
 
 
