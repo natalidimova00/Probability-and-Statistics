@@ -173,13 +173,42 @@ sum(res[1,]!="6" & res[2,]=="g") / sum(res[2,]=="g")
 # а)
 sum(res[2,]=="g") / Nrep
 
+# task 12
+
+# a)
+sim.coins.a <- function(){
+  coin <- sample(c(11, 11, 22, 12, 12), 1)
+  if (coin==12){
+    up <- sample( c(1, 2), 1)
+  } else{
+    if (coin==22){
+      up <- 2
+    } else{
+      up <- 1
+    }
+  }
+  up == 1
+}
 
 
+Nrep <- 100000
+res <- replace(Nrep, sim.coins.a())
+sum(res)/Nrep
 
+# b)
+sim.coins.b <- function(){
+  coin <- sample( c("11", "11", "22", "12", "12"), 1)
+  side <- sample( c(1, 2), 1)
+  up <- substr( coin, start = side, stop = side)
+  c(up, coin)
+}
 
+res <- replicate(Nrep, sim.coins.b())
 
-
-
+# a)
+sum(res[1,] == "1") / Nrep
+# b)
+sum(res[1,] == "1" & res[2,] == "12") / sum(res[1,] == "1")
 
 
 
